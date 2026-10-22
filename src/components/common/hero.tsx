@@ -21,6 +21,8 @@ type HeroProps = {
   layout?: "center" | "split";
   /** Heading level. Defaults to h1 since the hero usually heads the page. */
   titleAs?: "h1" | "h2";
+  /** `dark` sets the always-dark `bg-hero` band with light text and frames the media, in both themes. */
+  tone?: "default" | "dark";
   className?: string;
 };
 
@@ -33,12 +35,18 @@ function Hero({
   media,
   layout = "center",
   titleAs = "h1",
+  tone = "default",
   className,
 }: HeroProps) {
   const centered = layout === "center";
+  const dark = tone === "dark";
+  const badgeTone = dark && "bg-hero-foreground/10 text-hero-foreground ring-1 ring-hero-foreground/20";
 
   return (
-    <section data-slot="hero" className={cn("py-16 md:py-24", className)}>
+    <section
+      data-slot="hero"
+      className={cn("py-16 md:py-24", dark && "bg-hero text-hero-foreground", className)}
+    >
       <Container
         className={cn(
           "grid gap-12",
@@ -53,30 +61,44 @@ function Hero({
         >
           {eyebrow &&
             (eyebrow.href ? (
-              <Badge asChild variant="secondary" className="h-6 px-3">
+              <Badge asChild variant="secondary" className={cn("h-6 px-3", badgeTone)}>
                 <Link href={eyebrow.href}>
                   {eyebrow.label}
                   <ArrowRight data-icon="inline-end" />
                 </Link>
               </Badge>
             ) : (
-              <Badge variant="secondary" className="h-6 px-3">
+              <Badge variant="secondary" className={cn("h-6 px-3", badgeTone)}>
                 {eyebrow.label}
               </Badge>
             ))}
           <H1 as={titleAs} className="md:text-6xl">{title}</H1>
-          {description && <Lead className="max-w-2xl text-pretty">{description}</Lead>}
+          {description && (
+            <Lead className={cn("max-w-2xl text-pretty", dark && "text-hero-foreground/75")}>
+              {description}
+            </Lead>
+          )}
           {primaryCta && (
             <CtaGroup
               primary={primaryCta}
               secondary={secondaryCta}
               align={centered ? "center" : "start"}
+              tone={dark ? "hero" : "default"}
               className="mt-2 w-full sm:w-auto"
             />
           )}
         </div>
         {media && (
-          <div className={cn("relative", centered && "mx-auto w-full max-w-5xl")}>{media}</div>
+          <div
+            className={cn(
+              "relative",
+              centered && "mx-auto w-full max-w-5xl",
+              // Bezel lifts the media off the dark band, like a device frame.
+              dark && "rounded-2xl bg-hero-foreground/10 p-2 ring-1 ring-hero-foreground/15",
+            )}
+          >
+            {media}
+          </div>
         )}
       </Container>
     </section>

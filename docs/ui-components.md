@@ -11,7 +11,7 @@ How the component layer is set up and how to extend it. The original proposal is
   - `:root` holds light values and `.dark` holds dark values, all in oklch.
   - `@theme inline` maps them to Tailwind utilities such as `bg-primary` and `text-muted-foreground`.
   - To rebrand, change the tokens, not the components.
-  - Beyond the shadcn set there are semantic `--info`, `--success` and `--warning` tokens (used by `Callout`) and a `prose-tokens` utility that points `@tailwindcss/typography` at the tokens.
+  - Beyond the shadcn set there are semantic `--info`, `--success` and `--warning` tokens (used by `Callout`), `--hero` / `--hero-foreground` for the always-dark product hero band (see [product-pages.md](product-pages.md)) and a `prose-tokens` utility that points `@tailwindcss/typography` at the tokens.
 - **Fonts:**
   - `--font-sans` maps to Geist (`--font-geist-sans`, set in `layout.tsx`).
   - `--font-heading` defaults to the sans font. Point it at a display font later if the brand wants one.

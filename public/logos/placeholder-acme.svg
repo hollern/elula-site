@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="#111827">
+  <!-- Placeholder customer logo. Replace with the real file. -->
+  <circle cx="18" cy="20" r="14"/>
+  <text x="44" y="27" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.5">Acme</text>
+</svg>

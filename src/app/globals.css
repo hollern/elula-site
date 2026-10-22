@@ -7,6 +7,8 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -71,6 +73,9 @@
   --info: oklch(0.588 0.158 241.966);
   --success: oklch(0.596 0.145 163.225);
   --warning: oklch(0.666 0.179 58.318);
+  /* Always-dark band behind the product hero. Same in both themes, so `.dark` doesn't redefine it. */
+  --hero: oklch(0.22 0.045 255);
+  --hero-foreground: oklch(0.985 0.005 255);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);

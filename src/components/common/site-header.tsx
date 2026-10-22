@@ -41,6 +41,13 @@ type SiteHeaderProps = {
   className?: string;
 };
 
+// Two columns at md keep a wide menu inside the viewport; the full count kicks in at lg.
+const dropdownGrid = {
+  1: "w-96",
+  2: "w-[36rem] grid-cols-2",
+  3: "w-[36rem] grid-cols-2 lg:w-[48rem] lg:grid-cols-3",
+} as const;
+
 function isActive(pathname: string, href: string) {
   if (href.includes("#")) return false;
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -75,7 +82,7 @@ function SiteHeader({
                 <NavigationMenuItem key={item.title}>
                   <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-96 gap-1">
+                    <ul className={cn("grid gap-1", dropdownGrid[item.columns ?? 1])}>
                       {item.items.map((link) => (
                         <li key={link.href}>
                           <NavigationMenuLink asChild className="flex-col items-start gap-1">

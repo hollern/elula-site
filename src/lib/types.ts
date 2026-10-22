@@ -10,8 +10,11 @@ export type NavLink = {
   description?: string;
 };
 
-/** A top-level nav entry: a plain link, or a dropdown when `items` is set. */
-export type NavItem = NavLink | { title: string; items: NavLink[] };
+/**
+ * A top-level nav entry: a plain link, or a dropdown when `items` is set.
+ * `columns` lays the dropdown out as a grid on large screens (default 1).
+ */
+export type NavItem = NavLink | { title: string; items: NavLink[]; columns?: 1 | 2 | 3 };
 
 export type NavGroup = {
   title: string;
@@ -123,4 +126,77 @@ export type TocItem = {
   title: string;
   /** Heading level: 2 for h2, 3 for h3, and so on. */
   depth: number;
+};
+
+/** A static image rendered with next/image. */
+export type MediaImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export type Stat = {
+  /** The headline figure, e.g. "40%" or "3x". */
+  value: string;
+  label: string;
+  description?: string;
+};
+
+/** Placeholder pattern `ProductShot` draws until a real screenshot exists. */
+export type ProductShotPattern = "board" | "list" | "chart";
+
+/** One alternating text-and-media row on a product page. */
+export type ProductHighlight = {
+  title: string;
+  description: string;
+  points?: string[];
+  /** Real screenshot. Without it, `ProductShot` draws `pattern` as a placeholder. */
+  image?: MediaImage;
+  pattern?: ProductShotPattern;
+  /** Accessible name for the placeholder; ignored when `image` is set. */
+  mediaLabel: string;
+};
+
+/** Everything a `/product/[slug]` page renders. Optional blocks are skipped when omitted. */
+export type Product = {
+  slug: string;
+  /** Short name used in the nav and related links. */
+  name: string;
+  /** One line under the name in the nav dropdown. */
+  summary: string;
+  icon: LucideIcon;
+  metadata: { title: string; description: string };
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    primaryCta: Cta;
+    secondaryCta?: Cta;
+    image?: MediaImage;
+    pattern?: ProductShotPattern;
+    mediaLabel: string;
+  };
+  logos?: { title: string; items: CustomerLogo[] };
+  highlights: {
+    eyebrow?: string;
+    title: string;
+    subtitle?: string;
+    items: ProductHighlight[];
+  };
+  capabilities: {
+    eyebrow?: string;
+    title: string;
+    subtitle?: string;
+    items: Feature[];
+  };
+  stats?: { title: string; subtitle?: string; items: Stat[] };
+  testimonials?: { eyebrow?: string; title: string; items: Testimonial[] };
+  faqs?: { eyebrow?: string; title: string; subtitle?: string; items: Faq[] };
+  finalCta: {
+    title: string;
+    description?: string;
+    primaryCta: Cta;
+    secondaryCta?: Cta;
+  };
 };

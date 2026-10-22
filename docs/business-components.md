@@ -21,14 +21,14 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | Area | Component | File | Notes |
 |---|---|---|---|
 | Layout | `Container` | `container.tsx` | `size`: narrow / default / wide / full |
-| | `Section` | `section.tsx` | `variant`: default / muted / accent; `spacing`; wraps children in a Container unless `container={false}`; `scroll-mt-16` for anchors |
+| | `Section` | `section.tsx` | `variant`: default / muted / accent / hero (always-dark band); `spacing`; wraps children in a Container unless `container={false}`; `scroll-mt-16` for anchors |
 | | `SectionHeader` | `section-header.tsx` | eyebrow, title, subtitle, `align`, `titleAs` |
 | | `Logo` | `logo.tsx` | `variant`: icon / full; `size`; `href` makes it a link. The mark is a **placeholder SVG** drawn with tokens |
 | Shell | `SiteHeader` | `site-header.tsx` | Sticky. Border and blur appear after scrolling (`useScrolled`). Dropdowns come from `NavItem.items`. Mobile `Sheet`. `containerSize="full"` for docs |
 | | `SiteFooter` | `site-footer.tsx` | Async. Link columns, legal, socials and a `newsletter` slot. `copyright` is a `(year) => string` |
 | | `ThemeToggle` | `theme-toggle.tsx` | Unchanged from the primitives work |
-| | `CtaGroup` | `cta-group.tsx` | Primary + optional secondary. `tone="inverted"` for `bg-primary` surfaces |
-| Landing | `Hero` | `hero.tsx` | `layout`: center / split; `media` slot; optional linked eyebrow |
+| | `CtaGroup` | `cta-group.tsx` | Primary + optional secondary. `tone="inverted"` for `bg-primary` surfaces, `tone="hero"` for the `bg-hero` band |
+| Landing | `Hero` | `hero.tsx` | `layout`: center / split; `tone`: default / dark (navy `bg-hero` band); `media` slot; optional linked eyebrow |
 | | `FeatureCard`, `FeatureGrid` | `feature-grid.tsx` | `columns` 2/3/4; `variant`: card / plain |
 | | `LogoCloud` | `logo-cloud.tsx` | `next/image`, grayscale until hover; `invertOnDark` per logo |
 | | `TestimonialCard` | `testimonial-card.tsx` | `figure`/`blockquote`/`figcaption` |
@@ -36,6 +36,9 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | | `PlanComparison` | `plan-comparison.tsx` | Feature table under the pricing cards. Columns come from `PricingTier[]`; rows are `PlanComparisonGroup[]` keyed by tier name. See [marketing-pages.md](marketing-pages.md) |
 | | `FaqList` | `faq-list.tsx` | Single, collapsible accordion |
 | | `CtaBanner` | `cta-banner.tsx` | `variant`: primary / muted |
+| | `FeatureRow` | `feature-row.tsx` | Text + media row; `reverse` puts the media on the left for zig-zag lists |
+| | `ProductShot` | `product-shot.tsx` | Framed `next/image` screenshot, or a token-drawn placeholder (`board` / `list` / `chart`) |
+| | `StatGrid` | `stat-grid.tsx` | Headline figures as a `dl`; 1px dividers at any column count |
 | | `NewsletterForm` | `newsletter-form.tsx` | Needs an `action` (see below) |
 | Blog | `PostCard` | `post-card.tsx` | Stretched title link; tags sit above it with `z-10` |
 | | `AuthorByline` | `author-byline.tsx` | avatar, name, date, reading time |

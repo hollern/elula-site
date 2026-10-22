@@ -24,8 +24,8 @@ type CtaGroupProps = ComponentProps<"div"> &
     primary: Cta;
     secondary?: Cta;
     size?: "default" | "lg";
-    /** Use on `bg-primary` surfaces such as the CTA banner. */
-    tone?: "default" | "inverted";
+    /** `inverted` for `bg-primary` surfaces such as the CTA banner; `hero` for the always-dark `bg-hero` band. */
+    tone?: "default" | "inverted" | "hero";
   };
 
 function CtaGroup({
@@ -38,10 +38,16 @@ function CtaGroup({
   ...props
 }: CtaGroupProps) {
   const inverted = tone === "inverted";
+  const hero = tone === "hero";
 
   return (
     <div data-slot="cta-group" className={cn(ctaGroupVariants({ align }), className)} {...props}>
-      <Button asChild size={size} variant={inverted ? "secondary" : "default"} className="px-4">
+      <Button
+        asChild
+        size={size}
+        variant={inverted ? "secondary" : "default"}
+        className={cn("px-4", hero && "bg-hero-foreground text-hero hover:bg-hero-foreground/90")}
+      >
         <Link href={primary.href}>
           {primary.label}
           <ArrowRight data-icon="inline-end" />
@@ -51,11 +57,13 @@ function CtaGroup({
         <Button
           asChild
           size={size}
-          variant={inverted ? "ghost" : "outline"}
+          variant={inverted || hero ? "ghost" : "outline"}
           className={cn(
             "px-4",
             inverted &&
               "text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground dark:hover:bg-primary-foreground/10",
+            hero &&
+              "text-hero-foreground ring-1 ring-hero-foreground/25 hover:bg-hero-foreground/10 hover:text-hero-foreground dark:hover:bg-hero-foreground/10",
           )}
         >
           <Link href={secondary.href}>{secondary.label}</Link>

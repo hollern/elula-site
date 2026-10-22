@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { siGithub, siX } from "simple-icons";
 
+import { productHref, products } from "@/lib/product-content";
+
 import type {
   Cta,
   Feature,
@@ -36,11 +38,12 @@ export const site = {
 export const mainNav: NavItem[] = [
   {
     title: "Product",
-    items: [
-      { title: "Why Elula", href: "/#solution", description: "The problems Elula solves for your team." },
-      { title: "Benefits", href: "/#benefits", description: "What changes when everything lives in one place." },
-      { title: "Use cases", href: "/#use-cases", description: "How engineering, product and leadership use Elula." },
-    ],
+    columns: 3,
+    items: products.map((product) => ({
+      title: product.name,
+      href: productHref(product.slug),
+      description: product.summary,
+    })),
   },
   { title: "Pricing", href: "/pricing" },
   { title: "Blog", href: "/blog" },

@@ -13,6 +13,8 @@ const sectionVariants = cva(
         default: "bg-background",
         muted: "bg-muted/50",
         accent: "bg-accent text-accent-foreground",
+        /** Always-dark navy band, matching `Hero tone="dark"`. */
+        hero: "bg-hero text-hero-foreground",
       },
       spacing: {
         sm: "py-10 md:py-14",
