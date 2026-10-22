@@ -65,7 +65,8 @@ function Logo({ className, size, variant = "full", href, ...props }: LogoProps) 
     <Link
       href={href}
       aria-label={uiCopy.logo.homeLabel}
-      className="rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+      // inline-flex removes the line box that otherwise adds space under the logo and lifts it off-center.
+      className="inline-flex rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {content}
     </Link>

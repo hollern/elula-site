@@ -49,7 +49,7 @@ Because the `notFound()` happens in a streamed boundary, an unknown slug respond
 
 - The product hero is a navy band with near-white text in both themes, modeled on UpKeep. `ProductHero` passes `tone="dark"` to `Hero`.
 - **Tokens:** `--hero` (background) and `--hero-foreground` (text) in `globals.css`, used as `bg-hero` and `text-hero-foreground`. They're defined only in `:root` because they don't change with the theme. Change them to rebrand the band.
-- In `Hero`, `tone="dark"` sets the band and text, a translucent eyebrow badge, the description at `text-hero-foreground/75`, a bezel around the media, and `CtaGroup tone="hero"`, which gives a light primary button and an outlined secondary button.
+- In `Hero`, `tone="dark"` sets the band and text, a translucent, uppercase eyebrow badge (the casing is styling only, so copy stays in normal case), the description at `text-hero-foreground/75`, a bezel around the media, and `CtaGroup tone="hero"`, which gives a light primary button and an outlined secondary button.
 - `Section variant="hero"` is the same band for any other section. The page's Suspense fallback uses it.
 - **No one-off overrides:** `ProductHero` only passes data and `tone="dark"`. All the dark styling lives in the `Hero`, `CtaGroup` and `Section` variants (see CLAUDE.md, "Keep the component library in check").
 - This deliberately doesn't use a `.dark` class scope. If the band's CSS ever fails to load, the text would stay readable rather than turning light-on-white.

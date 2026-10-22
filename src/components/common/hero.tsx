@@ -21,7 +21,7 @@ type HeroProps = {
   layout?: "center" | "split";
   /** Heading level. Defaults to h1 since the hero usually heads the page. */
   titleAs?: "h1" | "h2";
-  /** `dark` sets the always-dark `bg-hero` band with light text and frames the media, in both themes. */
+  /** `dark` sets the always-dark `bg-hero` band with light text, an uppercase eyebrow and framed media, in both themes. */
   tone?: "default" | "dark";
   className?: string;
 };
@@ -40,7 +40,9 @@ function Hero({
 }: HeroProps) {
   const centered = layout === "center";
   const dark = tone === "dark";
-  const badgeTone = dark && "bg-hero-foreground/10 text-hero-foreground ring-1 ring-hero-foreground/20";
+  // The dark band uses an all-caps eyebrow label, like UpKeep's product pages.
+  const badgeTone =
+    dark && "bg-hero-foreground/10 tracking-wide text-hero-foreground uppercase ring-1 ring-hero-foreground/20";
 
   return (
     <section

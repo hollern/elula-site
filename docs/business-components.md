@@ -23,7 +23,7 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | Layout | `Container` | `container.tsx` | `size`: narrow / default / wide / full |
 | | `Section` | `section.tsx` | `variant`: default / muted / accent / hero (always-dark band); `spacing`; wraps children in a Container unless `container={false}`; `scroll-mt-16` for anchors |
 | | `SectionHeader` | `section-header.tsx` | eyebrow, title, subtitle, `align`, `titleAs` |
-| | `Logo` | `logo.tsx` | `variant`: icon / full; `size`; `href` makes it a link. The mark is a **placeholder SVG** drawn with tokens |
+| | `Logo` | `logo.tsx` | `variant`: icon / full; `size`; `href` makes it a link (`inline-flex`, so it centers in the header without extra space below it). The mark is a **placeholder SVG** drawn with tokens |
 | Shell | `SiteHeader` | `site-header.tsx` | Sticky. Border and blur appear after scrolling (`useScrolled`). Dropdowns come from `NavItem.items`. Mobile `Sheet`. `containerSize="full"` for docs |
 | | `SiteFooter` | `site-footer.tsx` | Async. Link columns, legal, socials and a `newsletter` slot. `copyright` is a `(year) => string` |
 | | `ThemeToggle` | `theme-toggle.tsx` | Unchanged from the primitives work |
