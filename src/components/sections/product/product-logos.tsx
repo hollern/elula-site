@@ -4,7 +4,7 @@ import type { Product } from "@/lib/types";
 
 function ProductLogos({ logos }: { logos: NonNullable<Product["logos"]> }) {
   return (
-    <Section spacing="sm">
+    <Section variant="muted" spacing="sm">
       <LogoCloud title={logos.title} logos={logos.items} />
     </Section>
   );

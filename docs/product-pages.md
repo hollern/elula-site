@@ -20,7 +20,7 @@ The route sits in the `(marketing)` group, so it gets `MarketingLayout` (see [ma
 | Order | Section | Anchor | Required | Background |
 |---|---|---|---|---|
 | 1 | `ProductHero`: split hero (`tone="dark"`), `h1`, `ProductShot` in a bezel beside the copy | – | yes | `bg-hero` (navy, both themes) |
-| 2 | `ProductLogos`: `LogoCloud` | – | `logos` | default |
+| 2 | `ProductLogos`: `LogoCloud` | – | `logos` | muted (sets the logo strip apart from the highlights) |
 | 3 | `ProductHighlights`: `FeatureRow`s that alternate sides | `#features` | yes | default |
 | 4 | `ProductCapabilities`: 3-column `FeatureGrid` | `#capabilities` | yes | muted |
 | 5 | `ProductStats`: `StatGrid` | `#results` | `stats` | default |
