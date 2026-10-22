@@ -11,6 +11,7 @@ How the component layer is set up and how to extend it. The original proposal is
   - `:root` holds light values and `.dark` holds dark values, all in oklch.
   - `@theme inline` maps them to Tailwind utilities such as `bg-primary` and `text-muted-foreground`.
   - To rebrand, change the tokens, not the components.
+  - Beyond the shadcn set there are semantic `--info`, `--success` and `--warning` tokens (used by `Callout`) and a `prose-tokens` utility that points `@tailwindcss/typography` at the tokens.
 - **Fonts:**
   - `--font-sans` maps to Geist (`--font-geist-sans`, set in `layout.tsx`).
   - `--font-heading` defaults to the sans font. Point it at a display font later if the brand wants one.
@@ -34,7 +35,7 @@ How the component layer is set up and how to extend it. The original proposal is
 
 ### Primitives in `ui/`
 
-accordion, avatar, badge, button, button-group, card, field, input, input-group, item, label\*, navigation-menu, separator, sheet, switch, table, tabs, textarea\*
+accordion, alert, avatar, badge, button, button-group, card, field, input, input-group, item, label\*, navigation-menu, separator, sheet, sonner, switch, table, tabs, textarea\*
 
 \* `label` and `textarea` were pulled in as dependencies of `field` and `input-group`.
 
@@ -45,6 +46,7 @@ accordion, avatar, badge, button, button-group, card, field, input, input-group,
   - Components: `H1`–`H4`, `P`, `Lead`, `Large`, `Small`, `Muted`, `InlineCode`, `Blockquote` and `List`.
   - Each accepts `as` to change the rendered element. Use it to keep one `h1` per page, e.g. `<H1 as="p">` for an h1-sized display line.
 - `data-table.tsx`: a generic table on **TanStack Table v9**. More below.
+- The business components (layout, shell, landing, blog and docs) are documented in [business-components.md](business-components.md) and previewed at `/dev/components`.
 
 ## Data Table (TanStack Table v9)
 
