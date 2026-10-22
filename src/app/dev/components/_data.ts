@@ -26,7 +26,7 @@ export const preview = {
     features: { id: "features", title: "FeatureCard & FeatureGrid" },
     logos: { id: "logos", title: "LogoCloud" },
     testimonials: { id: "testimonials", title: "TestimonialCard" },
-    pricing: { id: "pricing", title: "PricingCard & PricingTable" },
+    pricing: { id: "pricing", title: "PricingCard, PricingTable, PlanComparison" },
     faq: { id: "faq", title: "FaqList" },
     ctaBanner: { id: "cta-banner", title: "CtaBanner" },
     newsletter: { id: "newsletter", title: "NewsletterForm" },

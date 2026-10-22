@@ -73,6 +73,28 @@ export type PricingTier = {
   badge?: string;
 };
 
+/** A cell in the pricing comparison: `true`/`false` for included, or text such as "10 GB". */
+export type PlanComparisonValue = boolean | string;
+
+export type PlanComparisonRow = {
+  feature: string;
+  description?: string;
+  /** Keyed by `PricingTier.name`. A missing key renders as not included. */
+  values: Record<string, PlanComparisonValue>;
+};
+
+export type PlanComparisonGroup = {
+  title: string;
+  rows: PlanComparisonRow[];
+};
+
+export type UseCase = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  points: string[];
+};
+
 export type Faq = {
   question: string;
   answer: string;

@@ -33,6 +33,7 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | | `LogoCloud` | `logo-cloud.tsx` | `next/image`, grayscale until hover; `invertOnDark` per logo |
 | | `TestimonialCard` | `testimonial-card.tsx` | `figure`/`blockquote`/`figcaption` |
 | | `PricingCard`, `PricingTable` | `pricing-*.tsx` | The table owns the monthly/annual `Tabs`. A tier without `price` shows `priceLabel` |
+| | `PlanComparison` | `plan-comparison.tsx` | Feature table under the pricing cards. Columns come from `PricingTier[]`; rows are `PlanComparisonGroup[]` keyed by tier name. See [marketing-pages.md](marketing-pages.md) |
 | | `FaqList` | `faq-list.tsx` | Single, collapsible accordion |
 | | `CtaBanner` | `cta-banner.tsx` | `variant`: primary / muted |
 | | `NewsletterForm` | `newsletter-form.tsx` | Needs an `action` (see below) |
@@ -72,4 +73,4 @@ Hooks in `src/hooks/`: `useScrolled`, `useCopyToClipboard`, `useActiveHeading`.
 
 ## Content
 
-`src/lib/content.ts` holds `site`, `mainNav`, `headerCtas`, `footer` and `uiCopy` (all microcopy). The tagline, nav targets and social URLs are **placeholders** marked with a TODO. Landing copy (hero, features, pricing, FAQs) gets added there when the landing page is built. Until then the preview page's sample data lives in `src/app/dev/components/_data.ts`.
+`src/lib/content.ts` holds `site`, `mainNav`, `headerCtas`, `footer` and `uiCopy` (all microcopy). The tagline, nav targets and social URLs are **placeholders** marked with a TODO. Landing and pricing copy lives in `home` and `pricing` (see [marketing-pages.md](marketing-pages.md)). The preview page's sample data stays in `src/app/dev/components/_data.ts`.

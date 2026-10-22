@@ -42,4 +42,5 @@ Next.js (App Router) + TypeScript + Tailwind CSS + shadcn/ui.
 ### Reference docs
 - `docs/ui-components.md`: read before adding or changing UI components. Covers shadcn setup (radix-nova, `cn` package), theme tokens, dark mode, the `ui/` vs `common/` split, the Data Table (TanStack Table v9 API) and the `/dev/ui` preview page.
 - `docs/business-components.md`: read before building pages or changing `src/components/common`. Catalogs the layout, shell, landing, blog and docs components, the `/dev/components` preview, and gotchas (Cache Components and the clock, Shiki, Prose tokens, status tokens).
+- `docs/marketing-pages.md`: read before changing the home or pricing pages, `src/components/sections/` or the marketing layout. Covers the `(marketing)` route group, `MarketingLayout`, the section map and anchors, and the `PlanComparison` table.
 - `docs/ui-primitives-plan.md`: the original plan for the baseline primitives, now implemented.

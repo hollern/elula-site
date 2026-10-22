@@ -15,6 +15,7 @@ import { FeatureCard, FeatureGrid } from "@/components/common/feature-grid";
 import { Hero } from "@/components/common/hero";
 import { Logo } from "@/components/common/logo";
 import { LogoCloud } from "@/components/common/logo-cloud";
+import { PlanComparison } from "@/components/common/plan-comparison";
 import { PostCard } from "@/components/common/post-card";
 import { PrevNextLinks } from "@/components/common/prev-next-links";
 import { PricingCard } from "@/components/common/pricing-card";
@@ -29,7 +30,7 @@ import { TagList } from "@/components/common/tag-list";
 import { TestimonialCard } from "@/components/common/testimonial-card";
 import { H1, H2, Lead } from "@/components/common/typography";
 import { Button } from "@/components/ui/button";
-import { footer, headerCtas, mainNav, uiCopy } from "@/lib/content";
+import { footer, headerCtas, mainNav, pricing, uiCopy } from "@/lib/content";
 
 import { NewsletterDemo } from "./_components/newsletter-demo";
 import { preview, toc } from "./_data";
@@ -146,6 +147,11 @@ export default function ComponentsPreviewPage() {
           <div className="flex flex-col gap-12">
             <PricingTable tiers={preview.pricing.tiers} annualSavings={preview.pricing.annualSavings} />
             <PricingCard tier={preview.pricing.tiers[1]} billing="annual" className="max-w-sm" />
+            <PlanComparison
+              tiers={pricing.tiers}
+              groups={pricing.comparison.groups.slice(0, 2)}
+              caption={pricing.comparison.caption}
+            />
           </div>
         </Section>
 
