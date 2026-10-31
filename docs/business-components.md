@@ -13,7 +13,7 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
   - `NewsletterForm`.
   - `CopyButton`: the only client part of `CodeBlock`.
   - `TableOfContents`.
-  - `DocsSidebarLink`: the only client part of `DocsSidebar`.
+  - `DocsSidebarLink` and `DocsSidebarSection`: the client parts of `DocsSidebar` (active link; collapsible section).
   - `DocsMobileNav`: the sheet that holds `DocsSidebar` below `md`.
 - **Heading levels are a prop.** `Hero` defaults to `h1` and `SectionHeader` to `h2`. Pass `titleAs` to keep one `h1` per page.
 
@@ -48,7 +48,8 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | Docs | `Callout` | `callout.tsx` | note / tip / warning / danger, built on `Alert`, `role="note"` |
 | | `CodeBlock` | `code-block.tsx` | Async server component with Shiki, a filename header and line numbers |
 | | `TableOfContents` | `table-of-contents.tsx` | Takes `TocItem[]`; `useActiveHeading` highlights the current one |
-| | `DocsSidebar` | `docs-sidebar.tsx` | Takes a `DocNavItem[]` tree; top-level entries are section headings |
+| | `DocsSidebar` | `docs-sidebar.tsx` | Takes a `DocNavItem[]` tree; top-level entries are section headings, rendered as `DocsSidebarSection` |
+| | `DocsSidebarSection` | `docs-sidebar-section.tsx` | Collapsible section (`ui/collapsible`). Closed by default; opens when the current page is in it, and keeps the reader's toggles across navigations |
 | | `PrevNextLinks` | `prev-next-links.tsx` | Either side is optional |
 | | `DocsMobileNav` | `docs-mobile-nav.tsx` | Left `Sheet` with a "Menu" trigger; pass `DocsSidebar` as children. Closes on navigation |
 
@@ -69,7 +70,7 @@ Hooks in `src/hooks/`: `useScrolled`, `useCopyToClipboard`, `useActiveHeading`.
 - **Prose colors** come from the `prose-tokens` utility in `globals.css`, which maps `--tw-prose-*` to theme tokens. Don't add `prose-invert`. Dark mode and rebrands flow through the tokens. Components that keep their own styles inside Prose (`CodeBlock`, `Callout`) use `not-prose`.
 - **Semantic status tokens** `--info`, `--success` and `--warning` (light and dark) were added to `globals.css` for `Callout`. Use `text-info`, `bg-warning/10` and similar instead of palette colors.
 - **Brand icons:** lucide v1 removed them, so socials use `simple-icons` path data. simple-icons no longer ships LinkedIn.
-- **Active links in layouts:** layouts don't know the pathname, so `DocsSidebar` stays a server component and only `DocsSidebarLink` reads `usePathname()`. `SiteHeader` does the same for its nav.
+- **Active links in layouts:** layouts don't know the pathname, so `DocsSidebar` stays a server component and only `DocsSidebarLink` and `DocsSidebarSection` read `usePathname()`. `SiteHeader` does the same for its nav.
 - **Dates** use `formatDate()`, which formats in UTC so server and client output match.
 - **Toasts:** `<Toaster />` (sonner) is mounted once in the root layout.
 - **Avatars** use the Radix `AvatarImage`, not `next/image`, so the initials fallback still works. This is the one exception to the `next/image` rule.

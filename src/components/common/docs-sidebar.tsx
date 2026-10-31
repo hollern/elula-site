@@ -1,10 +1,14 @@
 import { DocsSidebarLink } from "@/components/common/docs-sidebar-link";
+import { DocsSidebarSection } from "@/components/common/docs-sidebar-section";
 import { uiCopy } from "@/lib/content";
 import type { DocNavItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 type DocsSidebarProps = {
-  /** Top-level entries are section headings; their `items` are the pages. */
+  /**
+   * Top-level entries are section headings; their `items` are the pages.
+   * Sections without an `href` collapse, closed unless they hold the current page.
+   */
   items: DocNavItem[];
   className?: string;
 };
@@ -30,21 +34,25 @@ function DocsSidebarTree({ items }: { items: DocNavItem[] }) {
   );
 }
 
+function collectHrefs(items: DocNavItem[]): string[] {
+  return items.flatMap((item) => [...(item.href ? [item.href] : []), ...collectHrefs(item.items ?? [])]);
+}
+
 function DocsSidebar({ items, className }: DocsSidebarProps) {
   return (
-    <nav data-slot="docs-sidebar" aria-label={uiCopy.docs.navLabel} className={cn("flex flex-col gap-6", className)}>
-      {items.map((section) => (
-        <div key={section.title} className="flex flex-col gap-1">
-          {section.href ? (
+    <nav data-slot="docs-sidebar" aria-label={uiCopy.docs.navLabel} className={cn("flex flex-col gap-2", className)}>
+      {items.map((section) =>
+        section.href ? (
+          <div key={section.title} className="flex flex-col gap-1">
             <DocsSidebarLink href={section.href}>{section.title}</DocsSidebarLink>
-          ) : (
-            <h2 className="px-2.5 text-xs font-medium tracking-wide text-foreground uppercase">
-              {section.title}
-            </h2>
-          )}
-          {section.items && <DocsSidebarTree items={section.items} />}
-        </div>
-      ))}
+            {section.items && <DocsSidebarTree items={section.items} />}
+          </div>
+        ) : (
+          <DocsSidebarSection key={section.title} title={section.title} hrefs={collectHrefs(section.items ?? [])}>
+            <DocsSidebarTree items={section.items ?? []} />
+          </DocsSidebarSection>
+        ),
+      )}
     </nav>
   );
 }
