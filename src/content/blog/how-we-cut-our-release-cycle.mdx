@@ -1,0 +1,37 @@
+---
+# TODO: placeholder post.
+title: How we cut our release cycle in half
+excerpt: A look at the process changes and tooling that took our team from monthly releases to shipping several times a week.
+date: "2026-10-14"
+tags: [Engineering, Process]
+author:
+  name: Ada Lovelace
+  role: VP Engineering
+readingTime: 6
+---
+
+A year ago we shipped once a month. Every release was a small event: a freeze, a long checklist and a few late nights. Today we ship several times a week, and nobody stays late.
+
+## Where we started
+
+Our monthly release bundled hundreds of changes. When something broke, finding the cause meant digging through weeks of work, and every rollback took good changes with it.
+
+## What we changed
+
+We didn't adopt a new methodology. We made two small changes and stuck with them.
+
+### Smaller batches
+
+Every merged pull request is now a release candidate. Feature flags keep unfinished work hidden, so the main branch is always ready to ship.
+
+### Automated checklists
+
+- Release notes are drafted from merged pull requests.
+- Smoke tests run against every candidate.
+- Owners are paged only when a check fails.
+
+## Results
+
+> Releases went from an event to a non-event, which is exactly what we wanted.
+
+Lead time dropped from 19 days to 4, and change failure rate halved. More importantly, releases stopped being stressful. If you want to try the same setup, start with the [quickstart](/docs/quickstart).

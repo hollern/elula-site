@@ -1,0 +1,34 @@
+---
+# TODO: placeholder post.
+title: Introducing Workflows 2.0
+excerpt: Conditional steps, approvals and a brand-new visual editor.
+date: "2026-10-02"
+tags: [Changelog]
+author:
+  name: Grace Hopper
+  role: Head of Product
+readingTime: 3
+---
+
+Workflows 2.0 is available today on every plan. It's the biggest update to workflows since launch, shaped by hundreds of conversations with teams like yours.
+
+## Conditional steps
+
+Steps can now run only when a condition is met, such as a label on the pull request or a change to a specific folder.
+
+```yaml title=".elula/workflows/release.yml"
+steps:
+  - name: Deploy docs
+    if: changed("docs/**")
+```
+
+## Approvals
+
+Require sign-off from a person or team before a workflow continues.
+
+> [!NOTE]
+> Approvals are available on the Team and Enterprise plans. See [pricing](/pricing).
+
+## Visual editor
+
+Build and edit workflows on a canvas instead of in YAML. Your existing workflows open in the editor automatically.

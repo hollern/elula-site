@@ -14,6 +14,7 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
   - `CopyButton`: the only client part of `CodeBlock`.
   - `TableOfContents`.
   - `DocsSidebarLink`: the only client part of `DocsSidebar`.
+  - `DocsMobileNav`: the sheet that holds `DocsSidebar` below `md`.
 - **Heading levels are a prop.** `Hero` defaults to `h1` and `SectionHeader` to `h2`. Pass `titleAs` to keep one `h1` per page.
 
 ## Catalog
@@ -49,6 +50,9 @@ Hand-written composites in `src/components/common/`, built on the `ui/` primitiv
 | | `TableOfContents` | `table-of-contents.tsx` | Takes `TocItem[]`; `useActiveHeading` highlights the current one |
 | | `DocsSidebar` | `docs-sidebar.tsx` | Takes a `DocNavItem[]` tree; top-level entries are section headings |
 | | `PrevNextLinks` | `prev-next-links.tsx` | Either side is optional |
+| | `DocsMobileNav` | `docs-mobile-nav.tsx` | Left `Sheet` with a "Menu" trigger; pass `DocsSidebar` as children. Closes on navigation |
+
+Page templates (`BlogPostTemplate`, `DocsPageTemplate`) and `DocsLayout` live in `src/components/layout/`; see [content-templates.md](content-templates.md). `SkipLink` (`layout/skip-link.tsx`) is shared by the marketing and docs layouts.
 
 Helpers: `PersonAvatar` (avatar with an initials fallback) and `SocialIcon` (simple-icons SVG).
 

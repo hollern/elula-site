@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/common/site-footer";
 import { SiteHeader } from "@/components/common/site-header";
-import { footer, headerCtas, mainNav, uiCopy } from "@/lib/content";
+import { SkipLink } from "@/components/layout/skip-link";
+import { footer, headerCtas, mainNav } from "@/lib/content";
 
 function MarketingHeader() {
   return (
@@ -29,12 +30,7 @@ function MarketingFooter() {
 function MarketingLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <a
-        href="#main"
-        className="sr-only z-50 rounded-md bg-background px-3 py-2 text-sm font-medium ring-2 ring-ring focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-      >
-        {uiCopy.layout.skipToContent}
-      </a>
+      <SkipLink />
       <MarketingHeader />
       <main id="main" className="flex-1">
         {children}

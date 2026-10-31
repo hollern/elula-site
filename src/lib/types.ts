@@ -1,6 +1,7 @@
 // Shared data shapes for content in src/lib/content.ts and the components
 // in src/components/common that render it.
 
+import type { ComponentType } from "react";
 import type { LucideIcon } from "lucide-react";
 import type { SimpleIcon } from "simple-icons";
 
@@ -200,3 +201,32 @@ export type Product = {
     secondaryCta?: Cta;
   };
 };
+
+/**
+ * One long-form page: its metadata plus the `Content` component that a page
+ * template renders into its content slot. Built from the MDX files in
+ * `src/content/` by `src/lib/blog.ts` and `src/lib/docs.ts`.
+ */
+export type ContentEntry<TMeta> = {
+  meta: TMeta;
+  Content: ComponentType;
+};
+
+/** A blog post's front matter plus its slug and TOC. The URL is `/blog/{slug}`. */
+export type BlogPostMeta = Omit<Post, "href"> & {
+  slug: string;
+  /** h2/h3 headings in `Content`, generated at build time. */
+  toc?: TocItem[];
+};
+
+/** A docs page's front matter plus its slug and TOC. The URL is `/docs/{slug}`; `""` is `/docs`. */
+export type DocPageMeta = {
+  slug: string;
+  title: string;
+  description?: string;
+  /** h2/h3 headings in `Content`, generated at build time. */
+  toc?: TocItem[];
+};
+
+export type BlogPostEntry = ContentEntry<BlogPostMeta>;
+export type DocPageEntry = ContentEntry<DocPageMeta>;

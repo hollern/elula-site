@@ -22,6 +22,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS + shadcn/ui.
 - `src/components/layout` — general layout components; we need to have initial layouts for home page, blog, and docs
 - `src/components/sections/` — landing page sections, one per file
 - `src/lib/content.ts` — all marketing copy, features, pricing, FAQs as data
+- `src/content/` — blog posts and docs pages as MDX files, compiled by `@next/mdx` and collected by `src/lib/blog.ts` and `src/lib/docs.ts`
 - `src/hooks/` — reusable logic to be used throughout the application
 - `src/lib` — utilities
 
@@ -53,4 +54,7 @@ Next.js (App Router) + TypeScript + Tailwind CSS + shadcn/ui.
 - `docs/business-components.md`: read before building pages or changing `src/components/common`. Catalogs the layout, shell, landing, blog and docs components, the `/dev/components` preview, and gotchas (Cache Components and the clock, Shiki, Prose tokens, status tokens).
 - `docs/marketing-pages.md`: read before changing the home or pricing pages, `src/components/sections/` or the marketing layout. Covers the `(marketing)` route group, `MarketingLayout`, the section map and anchors, and the `PlanComparison` table.
 - `docs/product-pages.md`: read before changing `/product/[slug]`, `src/lib/product-content.ts` or `src/components/sections/product/`. Covers the product page template, its section order, how to add a product and the Product nav dropdown.
+- `docs/content-templates.md`: read before changing blog or docs pages, `src/content/`, `src/lib/blog.ts`, `src/lib/docs.ts` or the blog/docs templates. Covers the content slot, content entries, `BlogPostTemplate`, `DocsPageTemplate`, `DocsLayout` and how to add a post or docs page.
+- `docs/mdx.md`: read before changing `next.config.ts` MDX options, `src/mdx-components.tsx` or `src/lib/mdx/`. Covers the `@next/mdx` pipeline, local plugins (callouts, code blocks, TOC), Turbopack plugin rules, caching and front matter validation.
+- `docs/content-authoring.md`: the contract for writing blog and docs MDX (file paths, front matter, callouts, code, allowed components, MDX syntax rules). Update it whenever the schema or the components map changes.
 - `docs/ui-primitives-plan.md`: the original plan for the baseline primitives, now implemented.

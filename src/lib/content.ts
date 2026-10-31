@@ -275,6 +275,30 @@ export const pricing = {
   },
 };
 
+// TODO: placeholder blog and docs copy. Post and page bodies live in src/content/.
+export const blog = {
+  metadata: {
+    title: "Blog",
+    description: "Product updates, engineering stories and ideas from the Elula team.",
+  },
+  header: {
+    eyebrow: "Blog",
+    title: "Notes from the Elula team",
+    subtitle: "Product updates, engineering stories and lessons from shipping software every week.",
+  },
+  backLink: "All posts",
+  related: {
+    title: "Keep reading",
+  },
+};
+
+export const docs = {
+  metadata: {
+    title: "Docs",
+    description: "Guides and reference for setting up and using Elula.",
+  },
+};
+
 export const uiCopy = {
   themeToggle: {
     label: "Toggle theme",
@@ -341,6 +365,7 @@ export const uiCopy = {
   },
   docs: {
     navLabel: "Docs",
+    menuLabel: "Menu",
   },
   prevNext: {
     label: "Pagination",
