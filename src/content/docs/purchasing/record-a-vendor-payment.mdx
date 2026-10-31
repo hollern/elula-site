@@ -1,0 +1,42 @@
+---
+title: Record a vendor payment
+description: Record a full or partial payment against a vendor invoice.
+section: Purchasing
+order: 27
+---
+
+<Callout variant="note" title="Who can do this">
+  By default, the **Administrator**, **Manager**, and **Accountant** roles can record vendor payments.
+</Callout>
+
+After you pay a vendor, record the payment on their invoice. You can pay an invoice in full or in parts, and Elula updates the invoice's status as payments add up.
+
+## Record a payment
+
+1. In the sidebar, choose **Purchasing** › **Vendor Invoices**, then open the invoice. Its status must be **Open** or **Partial**.
+2. Choose **Mark as Paid**.
+3. Check the **Amount**. It starts at the invoice's full **Grand Total**. If you're paying part of the invoice, enter the amount you paid.
+4. Optionally, change the **Payment Date** (it starts at today) and enter the **Payment Method** and **Payment Reference**, such as a check or transaction number.
+5. Choose **Mark as Paid**.
+
+Elula shows **Payment recorded**. If your payments now add up to the **Grand Total**, the invoice's status changes to **Paid**. Otherwise it changes to **Partial**.
+
+{/* TODO(screenshot): Mark as Paid dialog with a partial amount entered */}
+
+> [!WARNING]
+> The **Amount** always starts at the full **Grand Total**, even when part of the invoice is already paid. For a second or later payment, enter only the amount you're paying now. Otherwise you'll record more than you owe.
+
+## See an invoice's payments
+
+Open the invoice and choose the **Payments** tab. It lists each payment's **Payment #**, **Payment Date**, **Method**, **Reference**, and **Amount**.
+
+## Vendor payment FAQ
+
+### Can I change a payment after I record it?
+
+No. A recorded payment can't be edited. Check the amount and date before you choose **Mark as Paid**.
+
+**Related tasks**
+
+- [Enter a vendor invoice](/docs/purchasing/enter-a-vendor-invoice)
+- [View a vendor's transactions](/docs/purchasing/view-vendor-transactions)

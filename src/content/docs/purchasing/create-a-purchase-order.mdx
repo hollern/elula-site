@@ -1,0 +1,90 @@
+---
+title: Create a purchase order
+description: Order items from a vendor, then finalize the order when it's ready.
+section: Purchasing
+order: 24
+---
+
+<Callout variant="note" title="Who can do this">
+  By default, the **Administrator**, **Manager**, and **Procurement Manager** roles can create, edit, and finalize purchase orders.
+</Callout>
+
+A purchase order records what you're buying from a vendor, how much, and at what cost. You save it as a draft first, which you can keep editing. When it's correct, you finalize it. That locks it, and you can then receive items against it.
+
+## Create a purchase order
+
+1. In the sidebar, choose **Purchasing** › **Purchase Orders**.
+2. Choose **New Purchase Order**.
+3. Under **Order Details**, choose the **Vendor**.
+4. Optionally, fill in the other order details (see [Purchase order details](#purchase-order-details)).
+5. Under **Line Items**, fill in the first row:
+   1. Choose the **Item**.
+   2. Enter the **Qty**.
+   3. Choose the **Unit**.
+   4. Enter the **Unit Cost**.
+
+   The **Total** column shows Qty × Unit Cost.
+6. To add more items, choose **Add Item**. To remove a row, choose its trash icon.
+7. Optionally, add notes under **Memos & Notes**.
+8. Choose **Save Draft**.
+
+Elula shows **Purchase order created** and opens the new order with the status **Draft**. Elula gives the order a **PO Number** when you save it.
+
+{/* TODO(screenshot): New Purchase Order form with a vendor selected and two line items */}
+
+### Purchase order details
+
+| Field | What it's for |
+|---|---|
+| **Vendor** | Who you're ordering from. Required. You can't change it after you save. |
+| **Currency** | The currency of the order. Defaults to USD. |
+| **Vendor Reference** | The vendor's own reference for this order, such as their quote number. |
+| **Expected Delivery** | When you expect the delivery. |
+| **Location** | The location the order is for. Receipts for this order are recorded at this location. You can't change it after you save. |
+| **Internal Memo** | Notes for your team only. |
+| **External Memo** | Notes for the vendor, included on the document. |
+| **External Note** | A short note for the document footer. |
+
+### If the order won't save
+
+- **Vendor is required**: choose a vendor.
+- **Add at least one line item before saving.**: add an item to at least one row. Elula ignores rows that have no item and a unit cost of 0.
+- **Failed to create purchase order. Please try again.**: check that every row has an **Item** and a **Unit**, and a **Qty** greater than 0.
+
+## Edit a draft purchase order
+
+You can edit a purchase order only while it's a **Draft**.
+
+1. Open the purchase order.
+2. Choose **Edit**.
+3. Make your changes. You can change the **Currency**, **Vendor Reference**, and **Expected Delivery**, the quantities, units, and costs of existing line items, and the notes on the **Notes** tab. To remove a line, choose its trash icon.
+4. Choose **Save**.
+
+Elula shows **Purchase order saved**.
+
+## Finalize a purchase order
+
+Finalize the order when its details and line items are final.
+
+1. Open the draft purchase order.
+2. Choose **Finalize**.
+3. In the **Finalize purchase order?** dialog, choose **Finalize**.
+
+Elula shows **Purchase order finalized**, and the status changes to **Approved**.
+
+> [!WARNING]
+> Once you finalize a purchase order, it's locked and you can't edit it. Check the line items before you finalize.
+
+After you finalize the order, you can [receive items](/docs/purchasing/receive-items-on-a-purchase-order) against it.
+
+## Purchase order FAQ
+
+### Why can't I see my new purchase order in the list?
+
+The **Purchase Orders** list opens on the **Open Purchase Orders** view, which doesn't show drafts. To see your draft, switch to the **All Purchase Orders** view.
+
+**Related tasks**
+
+- [Receive items on a purchase order](/docs/purchasing/receive-items-on-a-purchase-order)
+- [Enter a vendor invoice](/docs/purchasing/enter-a-vendor-invoice)
+- [Add a vendor](/docs/purchasing/add-a-vendor)
