@@ -1,0 +1,84 @@
+---
+title: Enter a vendor invoice
+description: Record a bill from a vendor, on its own or from the purchase order it's for.
+section: Purchasing
+order: 26
+---
+
+<Callout variant="note" title="Who can do this">
+  By default, the **Administrator**, **Manager**, and **Accountant** roles can enter and edit vendor invoices.
+</Callout>
+
+Enter each bill you receive from a vendor so you can track what you owe and when it's due. You can link the invoice to the purchase order it's for, or enter it on its own for bills that have no order, such as utilities.
+
+## Enter a vendor invoice
+
+1. In the sidebar, choose **Purchasing** › **Vendor Invoices**.
+2. Choose **New Vendor Invoice**.
+3. Choose the **Vendor**.
+4. Optionally, choose the **Purchase Order** the invoice is for. The list shows all purchase orders, so pick one from this vendor.
+5. Enter the invoice details from the vendor's bill (see [Vendor invoice details](#vendor-invoice-details)).
+6. Choose **Save Invoice**.
+
+Elula shows **Vendor invoice created** and opens the invoice with the status **Open**.
+
+{/* TODO(screenshot): New Vendor Invoice form with Vendor, Amount, and Due Date filled in */}
+
+If you leave **Vendor** empty, the form shows **Vendor is required**.
+
+### Vendor invoice details
+
+| Field | What it's for |
+|---|---|
+| **Vendor Invoice #** | The invoice number printed on the vendor's bill. Elula also gives the invoice its own **Invoice #**. |
+| **Invoice Date** | The date on the vendor's bill. |
+| **Due Date** | When payment is due. |
+| **Amount** | The invoice amount before tax. |
+| **Tax Amount** | The tax on the invoice. |
+| **Grand Total** | **Amount** plus **Tax Amount**. Elula calculates it when you save. |
+
+Choosing a purchase order doesn't fill in any fields. Enter the amounts from the vendor's bill.
+
+## Enter an invoice from a purchase order
+
+You can also enter an invoice directly from its purchase order. The vendor and the order are filled in for you.
+
+1. Open the purchase order and choose the **Billing** tab.
+2. Choose **New Vendor Invoice**.
+3. Enter the **Amount**. Optionally, enter the **Vendor Invoice #**, **Invoice Date**, and **Due Date**.
+4. Choose **Create**.
+
+Elula shows **Vendor invoice created**, and the invoice appears in the **Vendor Invoices** list on the **Billing** tab. If you leave **Amount** empty, the dialog shows **Amount is required**.
+
+## Edit a vendor invoice
+
+You can edit an invoice only while its status is **Open**.
+
+1. Open the invoice.
+2. Choose **Edit**.
+3. Update the details. You can't change the **Vendor** or **Purchase Order**.
+4. Choose **Save**.
+
+Elula shows **Vendor invoice saved** and recalculates the **Grand Total**.
+
+## Invoice statuses
+
+| Status | Meaning |
+|---|---|
+| **Open** | No payments recorded yet. |
+| **Partially Paid** | Some of the **Grand Total** has been paid. The invoice page shows this status as **Partial**. |
+| **Paid** | Payments add up to the full **Grand Total**. |
+
+Elula updates the status for you as you [record payments](/docs/purchasing/record-a-vendor-payment).
+
+## Vendor invoice FAQ
+
+### Why can't I edit an invoice?
+
+After you record a payment, the invoice is no longer **Open**, and **Edit** no longer appears. Check that the details are right before you record the first payment.
+
+**Related tasks**
+
+- [Record a vendor payment](/docs/purchasing/record-a-vendor-payment)
+- [Receive items on a purchase order](/docs/purchasing/receive-items-on-a-purchase-order)
+- [View a vendor's transactions](/docs/purchasing/view-vendor-transactions)

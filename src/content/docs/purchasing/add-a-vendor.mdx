@@ -1,0 +1,62 @@
+---
+title: Add a vendor
+description: Add the businesses you buy from, one at a time or from a CSV file.
+section: Purchasing
+order: 21
+---
+
+<Callout variant="note" title="Who can do this">
+  By default, the **Administrator**, **Manager**, and **Procurement Manager** roles can add and edit vendors.
+</Callout>
+
+Add a vendor before you create a purchase order or enter an invoice from them. Only the vendor's name is required, so you can start with that and fill in the rest later.
+
+## Add a vendor
+
+1. In the sidebar, choose **Purchasing** › **Vendors**.
+2. Choose **New Vendor**.
+3. Enter the **Vendor Name**.
+4. Optionally, fill in the rest of the form:
+   - **Vendor Details**: **Payment Terms (days)**, **Default Currency**, and **Tax ID**.
+   - **Contact Details**: **Email**, **Phone**, and **Website**.
+   - **Address**: the vendor's street address.
+5. Choose **Save Vendor**.
+
+Elula shows **Vendor created** and opens the new vendor.
+
+{/* TODO(screenshot): New Vendor form with Vendor Name filled in */}
+
+If you leave **Vendor Name** empty, the form shows **Vendor name is required**. If the save fails for another reason, you see **Failed to create vendor. Please try again.**
+
+## Change a vendor's details
+
+1. Open the vendor from **Purchasing** › **Vendors**.
+2. Choose **Edit**.
+3. Update the details. The **Contact & Address** tab is editable at the same time.
+4. Choose **Save**.
+
+Elula shows **Vendor saved**.
+
+## Import vendors from a CSV file
+
+Use an import when you have many vendors to add at once.
+
+1. In the sidebar, choose **Purchasing** › **Vendors**.
+2. Open **More Actions** and choose **Import Vendors**.
+3. Choose your CSV file. Its first row must contain column headers.
+   - To start from the expected headers, choose **Template** to download a template file.
+4. Choose **Next**.
+5. On the **Map Columns** step, match each Elula field to a column in your file. **Vendor Name** is required. You can also map **Tax ID**, **Payment Terms (Days)**, **Default Currency**, **Email**, **Phone**, and **Website**.
+6. Choose the import button. Its label shows how many vendors will be created, for example **Import 12 vendors**.
+7. Review the **Import Result**, then choose **Close**.
+
+The result tells you how many vendors were created. If some rows failed, it lists each one by row number. For example, a row with no name shows "Row 4: Vendor Name is required". Fix those rows in your file and import them again.
+
+> [!TIP]
+> Import only the rows that failed. Every row you import creates a new vendor, so importing the whole file again can add vendors twice.
+
+**Related tasks**
+
+- [Manage vendor contacts](/docs/purchasing/manage-vendor-contacts)
+- [Create a purchase order](/docs/purchasing/create-a-purchase-order)
+- [Purchasing overview](/docs/purchasing)
